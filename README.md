@@ -1,2 +1,2 @@
 # mnist-handwritten-digits
-Implementing linear SVM and building a CNN using Caffe to achieve hand-written digit recognition
+Implementing linear SVM and constructing a CNN using PyTorch to achieve hand-written digit recognition
