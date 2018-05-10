@@ -18,3 +18,5 @@ There are three scripts in the [src](src/) directory. Each script is meant to be
 * svm.py - Linear SVM classifier
 * svm_lda.py - Linear SVM classifier after reducing the dataset to 9 dimensions using LDA
 * deep_learning.py - Convolutional neural network based on LeNet-5
+
+The [deep learning](src/deep_learning.py) script allows the additional usage of several command line arguments. These include batch size and learning rate, for example. Defaults are set for all parameters in the event that none are explicitly provided.
