@@ -7,7 +7,7 @@ For a formal definition of the assignment, please see the project [description](
 
 ## How to Run the Code
 
-Create a virtual Python3 environment so as to not affect any other projects and install the binaries listed in [requirements.txt](requirements.txt) using pip.
+Create a new virtual Python3 environment so as to not affect any other projects or programs and install the binaries listed in [requirements.txt](requirements.txt) using pip.
 
 There are three scripts in the [src](src/) directory. Each script is meant to be run in its entirety from the command line as such.
 
