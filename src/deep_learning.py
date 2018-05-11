@@ -109,7 +109,7 @@ def train(model, optimizer, epoch, loader):
         if batch_idx % args.log_interval == 0:
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                 epoch, batch_idx * len(data), length,
-                100. * batch_idx / length, loss.data[0])) # MAYBE TRY len(loader) here
+                100. * batch_idx / len(loader), loss.data[0]))
 
 def test(model, loader, name):
     test_loss = 0
