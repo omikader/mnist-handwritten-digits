@@ -128,28 +128,29 @@ def test(model, loader, name):
 
     return test_loss
 
-# Set manual seed to create reproduceable results
-torch.manual_seed(args.seed)
+if __name__ == '__main__':
+    # Set manual seed to create reproduceable results
+    torch.manual_seed(args.seed)
 
-# Create new LeNet model and stochastic gradient descent optimization object
-model = LeNet5()
-optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
+    # Create new LeNet model and stochastic gradient descent optimization object
+    model = LeNet5()
+    optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
 
-# Load training, validation, and testing data
-train_loader, valid_loader = get_train_valid_loader(args.seed)
-test_loader = get_test_loader()
+    # Load training, validation, and testing data
+    train_loader, valid_loader = get_train_valid_loader(args.seed)
+    test_loader = get_test_loader()
 
-min_loss = sys.float_info.max
+    min_loss = sys.float_info.max
 
-# Run epochs and save model with best performance on the validation set
-for epoch in range(1, args.epochs + 1):
-    train(model, optimizer, epoch, train_loader)
-    loss = test(model, valid_loader, 'Validation')
+    # Run epochs and save model with best performance on the validation set
+    for epoch in range(1, args.epochs + 1):
+        train(model, optimizer, epoch, train_loader)
+        loss = test(model, valid_loader, 'Validation')
 
-    if loss < min_loss:
-        min_loss = loss
-        torch.save(model, 'best_model.pt')
+        if loss < min_loss:
+            min_loss = loss
+            torch.save(model, 'best_model.pt')
 
-# Use model with the lowest validation set loss on test data
-best_model = torch.load('best_model.pt')
-test(best_model, test_loader, 'Test')
+    # Use model with the lowest validation set loss on test data
+    best_model = torch.load('best_model.pt')
+    test(best_model, test_loader, 'Test')
